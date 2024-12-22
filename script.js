@@ -41,6 +41,9 @@ function showBookings() {
 }
 
 function showSection(sectionId) {
+    const sections = document.querySelectorAll('section');
+    sections.forEach(section => section.classList.remove('active'));
+    document.getElementById(sectionId).classList.add('active');
     if (sectionId === "admin-panel" && !isAdminLoggedIn) {
         alert("Anda tidak memiliki akses ke halaman admin.");
         return;
@@ -50,12 +53,6 @@ function showSection(sectionId) {
         section.style.display = "none";
     });
     document.getElementById(sectionId).style.display = "block";
-}
-
-function showSection(sectionId) {
-    const sections = document.querySelectorAll('section');
-    sections.forEach(section => section.classList.remove('active'));
-    document.getElementById(sectionId).classList.add('active');
 }
 function handleBooking(event) {
     event.preventDefault(); 
