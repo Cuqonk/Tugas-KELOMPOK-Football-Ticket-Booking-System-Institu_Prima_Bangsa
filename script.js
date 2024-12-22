@@ -1,3 +1,55 @@
+// login admin
+function handleAdminLogin(event) {
+    event.preventDefault();
+
+    const username = document.getElementById("admin-username").value;
+    const password = document.getElementById("admin-password").value;
+
+    if (username === "admin" && password === "admin123") {
+        isAdminLoggedIn = true;
+        alert("Login berhasil!");
+        showSection("admin-panel");
+        showBookings();
+    } else {
+        alert("Username atau password salah!");
+    }
+}
+
+// tampilan admin
+function showBookings() {
+    if (!isAdminLoggedIn) {
+        alert("Anda tidak memiliki akses untuk melihat data pemesan.");
+        return;
+    }
+
+    const tbody = document.querySelector("#booking-list tbody");
+    tbody.innerHTML = ""; // Kosongkan tabel sebelum mengisi ulang
+
+    bookings.forEach(booking => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>${booking.name}</td>
+            <td>${booking.email}</td>
+            <td>${booking.match}</td>
+            <td>${booking.quantity}</td>
+            <td>Rp ${booking.totalPrice.toLocaleString()}</td>
+        `;
+        tbody.appendChild(row);
+    });
+}
+
+function showSection(sectionId) {
+    if (sectionId === "admin-panel" && !isAdminLoggedIn) {
+        alert("Anda tidak memiliki akses ke halaman admin.");
+        return;
+    }
+
+    document.querySelectorAll(".content section").forEach(section => {
+        section.style.display = "none";
+    });
+    document.getElementById(sectionId).style.display = "block";
+}
+
 function showSection(sectionId) {
     const sections = document.querySelectorAll('section');
     sections.forEach(section => section.classList.remove('active'));
@@ -87,39 +139,4 @@ function handleAdminLogin(event) {
     } else {
         alert("Username atau password salah!");
     }
-}
-
-// tampilan admin
-function showBookings() {
-    if (!isAdminLoggedIn) {
-        alert("Anda tidak memiliki akses untuk melihat data pemesan.");
-        return;
-    }
-
-    const tbody = document.querySelector("#booking-list tbody");
-    tbody.innerHTML = ""; // Kosongkan tabel sebelum mengisi ulang
-
-    bookings.forEach(booking => {
-        const row = document.createElement("tr");
-        row.innerHTML = `
-            <td>${booking.name}</td>
-            <td>${booking.email}</td>
-            <td>${booking.match}</td>
-            <td>${booking.quantity}</td>
-            <td>Rp ${booking.totalPrice.toLocaleString()}</td>
-        `;
-        tbody.appendChild(row);
-    });
-}
-
-function showSection(sectionId) {
-    if (sectionId === "admin-panel" && !isAdminLoggedIn) {
-        alert("Anda tidak memiliki akses ke halaman admin.");
-        return;
-    }
-
-    document.querySelectorAll(".content section").forEach(section => {
-        section.style.display = "none";
-    });
-    document.getElementById(sectionId).style.display = "block";
 }
