@@ -153,7 +153,6 @@ table tr:hover {
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 10px;
-    display: none;
 }
 
 @media (max-width: 768px) {
