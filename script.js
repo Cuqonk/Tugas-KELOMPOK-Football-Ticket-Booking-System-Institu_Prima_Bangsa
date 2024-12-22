@@ -1,3 +1,5 @@
+let bookings = [];
+let isAdminLoggedIn = false;
 // login admin
 function handleAdminLogin(event) {
     event.preventDefault();
