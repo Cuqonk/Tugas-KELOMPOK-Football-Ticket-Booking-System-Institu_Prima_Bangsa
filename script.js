@@ -121,22 +121,3 @@ function proceedToPayment(totalPrice) {
     alert(`Melanjutkan ke pembayaran melalui DANA untuk total Rp ${totalPrice.toLocaleString()}.`);
     window.location.href = "https://link.dana.id/m/checkout"; 
 }
-let bookings = [];
-let isAdminLoggedIn = false; // Flag untuk status login admin
-
-// login admin
-function handleAdminLogin(event) {
-    event.preventDefault();
-
-    const username = document.getElementById("admin-username").value;
-    const password = document.getElementById("admin-password").value;
-
-    if (username === "admin" && password === "admin123") {
-        isAdminLoggedIn = true;
-        alert("Login berhasil!");
-        showSection("admin-panel");
-        showBookings();
-    } else {
-        alert("Username atau password salah!");
-    }
-}
