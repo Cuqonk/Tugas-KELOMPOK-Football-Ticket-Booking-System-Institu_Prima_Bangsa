@@ -1,5 +1,3 @@
-let bookings = [];
-let isAdminLoggedIn = false;
 // login admin
 function handleAdminLogin(event) {
     event.preventDefault();
@@ -19,14 +17,14 @@ function handleAdminLogin(event) {
 
 // tampilan admin
 function showBookings() {
+    let bookings = [];
+    let isAdminLoggedIn = false;
     if (!isAdminLoggedIn) {
         alert("Anda tidak memiliki akses untuk melihat data pemesan.");
         return;
     }
-
     const tbody = document.querySelector("#booking-list tbody");
     tbody.innerHTML = ""; // Kosongkan tabel sebelum mengisi ulang
-
     bookings.forEach(booking => {
         const row = document.createElement("tr");
         row.innerHTML = `
