@@ -154,6 +154,13 @@ table tr:hover {
     border: 1px solid #ddd;
     border-radius: 10px;
 }
+section {
+    display: none; /* Default: Semua disembunyikan */
+}
+
+section.active {
+    display: block; /* Tampilkan hanya yang aktif */
+}
 
 @media (max-width: 768px) {
     .sidebar {
