@@ -7,7 +7,7 @@ function handleAdminLogin(event) {
     const username = document.getElementById("admin-username").value;
     const password = document.getElementById("admin-password").value;
 
-    if (username === "admin" && password === "admin123") {
+    if (username === "admin" && password === "useradmin123") {
         isAdminLoggedIn = true;
         alert("Login berhasil!");
         showSection("admin-panel");
