@@ -49,6 +49,21 @@ function openGooglemaps() {
     window.location.href = "https://maps.app.goo.gl/x6jEgov7sdDuQqQ69";
 }
 
+//verifikasi 
+function verifyEmail(email, totalPrice) {
+    const verificationCode = Math.floor(100000 + Math.random() * 900000); // Generate kode verifikasi 6 digit
+    alert(`Kode verifikasi telah dikirim ke email: ${email}. Masukkan kode untuk melanjutkan.`);
+
+    const userCode = prompt("Masukkan kode verifikasi:");
+
+    if (parseInt(userCode, 10) === verificationCode) {
+        alert("Verifikasi berhasil! Melanjutkan ke pembayaran.");
+        proceedToPayment(totalPrice);
+    } else {
+        alert("Kode verifikasi salah. Mohon coba lagi.");
+    }
+}
+
 //DANA
 function proceedToPayment(totalPrice) {
     alert(`Melanjutkan ke pembayaran melalui DANA untuk total Rp ${totalPrice.toLocaleString()}.`);
