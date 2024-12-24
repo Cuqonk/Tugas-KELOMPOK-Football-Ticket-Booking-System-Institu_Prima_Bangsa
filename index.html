@@ -17,13 +17,15 @@
             <li><a href="#" onclick="showSection('admin-login')">Admin</a></li>
         </ul>
     </div>
-    <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
-    <div id="admin-sidebar"  style="display: none;">
+    <div id="admin-sidebar">
         <ul>
             <li><a href="#" onclick="showSection('admin-panel')">Admin Panel</a></li>
             <li><a href="#" onclick="handleAdminLogout()">Logout</a></li>
         </ul>
     </div>
+
+    <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+
     <div class="content">
         <section id="home" class="active">
             <h2>Selamat datang di Sistem Pemesanan Tiket Sepak Bola</h2>
@@ -117,6 +119,7 @@
             </form>
         </section>
         <section id="admin-panel">
+            <h2>Admin Panel</h2>
             <table id="booking-list">
                 <thead>
                     <tr>
@@ -129,9 +132,6 @@
                 </thead>
                 <tbody></tbody>
             </table>
-             <ul>
-                <li><a href="#" onclick="handleAdminLogout()">Logout</a></li>
-            </ul>
         </section>
         
         <footer>
