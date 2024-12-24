@@ -155,11 +155,11 @@ table tr:hover {
     border-radius: 10px;
 }
 section {
-    display: none; /* Default: Semua disembunyikan */
+    display: none;
 }
 
 section.active {
-    display: block; /* Tampilkan hanya yang aktif */
+    display: block; 
 }
 
 @media (max-width: 768px) {
@@ -193,12 +193,4 @@ section.active {
 .toggle-btn {
     display: none;
     cursor: pointer;
-}
-
-section {
-    display: none;
-}
-
-section.active {
-    display: block;
 }
