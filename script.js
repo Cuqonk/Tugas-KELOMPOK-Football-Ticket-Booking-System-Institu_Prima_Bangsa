@@ -19,12 +19,6 @@ function handleAdminLogin(event) {
 
 // tampilan admin
 function showBookings() {
-    let bookings = [];
-    let isAdminLoggedIn = false;
-    if (else) {
-        alert("Anda tidak memiliki akses untuk melihat data pemesan.");
-        return;
-    }
     const tbody = document.querySelector("#booking-list tbody");
     tbody.innerHTML = ""; // Kosongkan tabel sebelum mengisi ulang
     bookings.forEach(booking => {
