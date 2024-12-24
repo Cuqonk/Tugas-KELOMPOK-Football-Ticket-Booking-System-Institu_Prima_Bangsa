@@ -117,7 +117,12 @@
             </form>
         </section>
         <section id="admin-panel">
-            <h2>Admin Panel</h2>
+             <div id="admin-sidebar"  style="display: none;">
+                    <ul>
+                        <li><a href="#" onclick="showSection('admin-panel')">Admin Panel</a></li>
+                        <li><a href="#" onclick="handleAdminLogout()">Logout</a></li>
+                    </ul>
+             </div>
             <table id="booking-list">
                 <thead>
                     <tr>
