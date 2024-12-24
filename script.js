@@ -1,4 +1,6 @@
 // login admin
+ let bookings = [];
+    let isAdminLoggedIn = false;
 function handleAdminLogin(event) {
     event.preventDefault();
 
@@ -19,7 +21,7 @@ function handleAdminLogin(event) {
 function showBookings() {
     let bookings = [];
     let isAdminLoggedIn = false;
-    if (!isAdminLoggedIn) {
+    if (else) {
         alert("Anda tidak memiliki akses untuk melihat data pemesan.");
         return;
     }
@@ -42,9 +44,6 @@ function showSection(sectionId) {
     const sections = document.querySelectorAll('section');
     sections.forEach(section => section.classList.remove('active'));
     document.getElementById(sectionId).classList.add('active');
-    if (sectionId === "admin-panel" && !isAdminLoggedIn) {
-        alert("Anda tidak memiliki akses ke halaman admin.");
-        return;
     }
 
     document.querySelectorAll(".content section").forEach(section => {
