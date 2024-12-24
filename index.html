@@ -107,12 +107,6 @@
         </section>
 
         <section id="admin-login" class="active">
-             <div id="admin-sidebar">
-                    <ul>
-                        <li><a href="#" onclick="showSection('admin-panel')">Admin Panel</a></li>
-                        <li><a href="#" onclick="handleAdminLogout()">Logout</a></li>
-                    </ul>
-             </div>
             <h2>Admin Login</h2>
             <form id="admin-form" onsubmit="handleAdminLogin(event)">
                 <label for="admin-username">Username:</label>
@@ -135,6 +129,9 @@
                 </thead>
                 <tbody></tbody>
             </table>
+             <ul>
+                <li><a href="#" onclick="handleAdminLogout()">Logout</a></li>
+            </ul>
         </section>
         
         <footer>
