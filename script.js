@@ -1,12 +1,15 @@
-// login admin
+let isAdminLoggedIn = localStorage.getItem("isAdminLoggedIn") === "true";
+let bookings = [];
+
+// Login Admin
 function handleAdminLogin(event) {
     event.preventDefault();
-
     const username = document.getElementById("admin-username").value;
     const password = document.getElementById("admin-password").value;
 
     if (username === "admin" && password === "admin123") {
         isAdminLoggedIn = true;
+        localStorage.setItem("isAdminLoggedIn", "true");
         alert("Login berhasil!");
         showSection("admin-panel");
         showBookings();
@@ -15,10 +18,23 @@ function handleAdminLogin(event) {
     }
 }
 
-// tampilan admin
+// Logout Admin
+function handleAdminLogout() {
+    isAdminLoggedIn = false;
+    localStorage.removeItem("isAdminLoggedIn");
+    alert("Logout berhasil!");
+    showSection("home");
+}
+
+// Tampilkan Data Pemesan
 function showBookings() {
+    if (!isAdminLoggedIn) {
+        alert("Anda tidak memiliki akses.");
+        return;
+    }
+
     const tbody = document.querySelector("#booking-list tbody");
-    tbody.innerHTML = ""; // Kosongkan tabel sebelum mengisi ulang
+    tbody.innerHTML = "";
     bookings.forEach(booking => {
         const row = document.createElement("tr");
         row.innerHTML = `
@@ -32,10 +48,27 @@ function showBookings() {
     });
 }
 
+function updateSidebar() {
+    const userSidebar = document.querySelector(".sidebar");
+    const adminSidebar = document.getElementById("admin-sidebar");
+
+    if (isAdminLoggedIn) {
+        userSidebar.style.display = "none";
+        adminSidebar.style.display = "block";
+    } else {
+        userSidebar.style.display = "block";
+        adminSidebar.style.display = "none";
+    }
+}
+
+
 function showSection(sectionId) {
     const sections = document.querySelectorAll('section');
     sections.forEach(section => section.classList.remove('active'));
     document.getElementById(sectionId).classList.add('active');
+    if (sectionId === "admin-panel" && !isAdminLoggedIn) {
+        alert("Anda tidak memiliki akses ke halaman admin.");
+        return;
     }
 
     document.querySelectorAll(".content section").forEach(section => {
@@ -53,6 +86,7 @@ function handleBooking(event) {
     if (!match || !name || !email || isNaN(quantity)) {
         alert("Mohon lengkapi semua data pemesanan.");
         return;
+        
     }
     const confirmation = confirm(`Anda akan memesan ${quantity} tiket untuk pertandingan ${match}. Total: Rp ${totalPrice.toLocaleString()}\nKlik OK untuk melanjutkan ke pembayaran.`);
 
@@ -60,6 +94,10 @@ function handleBooking(event) {
         proceedToPayment(totalPrice);
     }
     
+    if (isAdminLoggedIn) {
+            showBookings();
+    }
+
 //EMAIL
 }
 function toggleSidebar() {
@@ -109,3 +147,14 @@ function proceedToPayment(totalPrice) {
     alert(`Melanjutkan ke pembayaran melalui DANA untuk total Rp ${totalPrice.toLocaleString()}.`);
     window.location.href = "https://link.dana.id/m/checkout"; 
 }
+window.onload = function () {
+    isAdminLoggedIn = localStorage.getItem("isAdminLoggedIn") === "true";
+    updateSidebar();
+
+    if (isAdminLoggedIn) {
+        showSection("admin-panel");
+        showBookings();
+    } else {
+        showSection("home");
+    }
+};
