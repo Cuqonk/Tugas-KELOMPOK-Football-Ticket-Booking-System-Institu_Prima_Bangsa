@@ -14,9 +14,15 @@
             <li><a href="#" onclick="showSection('matches')">Matches</a></li>
             <li><a href="#" onclick="showSection('book-ticket')">Book Ticket</a></li>
             <li><a href="#" onclick="showSection('contact')">Contact</a></li>
+            <li><a href="#" onclick="showSection('admin-login')">Admin</a></li>
         </ul>
     </div>
-
+     <div id="admin-sidebar">
+        <ul>
+            <li><a href="#" onclick="showSection('admin-panel')">Admin Panel</a></li>
+            <li><a href="#" onclick="handleAdminLogout()">Logout</a></li>
+        </ul>
+    </div>
     <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
 
     <div class="content">
