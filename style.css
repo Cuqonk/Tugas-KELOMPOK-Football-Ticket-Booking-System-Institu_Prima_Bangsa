@@ -213,12 +213,14 @@ section.active {
 }
    .sidebar {
     display: none;
+    display: block;
 }
 #admin-sidebar {
     display: none;
 }
    .sidebar.active {
    display: block;
+   display: none;
 		}
 #admin-sidebar.active {
     display: block;
