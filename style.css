@@ -40,6 +40,7 @@ body {
 
 #admin-sidebar {
     display: active;
+    width: 150px;
 }
 
 .sidebar ul {
@@ -161,11 +162,11 @@ table tr:hover {
     }
 }
 section {
-    display: none; /* Default: Semua disembunyikan */
+    display: none; 
 }
 
 section.active {
-    display: block; /* Tampilkan hanya yang aktif */
+    display: block; 
 }
 
 @media (max-width: 768px) {
@@ -200,18 +201,26 @@ section.active {
     display: none;
     cursor: pointer;
 }
-
-section {
+#admin-login{
+    margin: 150px auto;
+    width: 150px;
+    padding: 150px;
+    border: 2px solid #ddd;
+    border-radius: 80px;
+}
+#admin-panel{
+		max-width: 1800px;
+}
+		.sidebar {
     display: none;
 }
 
-section.active {
-    display: block;
+#admin-sidebar {
+    display: none;
 }
-#admin-login, #admin-panel {
-    margin: 20px auto;
-    max-width: 500px;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
+		.sidebar.active {
+		  display: block;
+		}
+#admin-sidebar.active {
+    display: block;
 }
