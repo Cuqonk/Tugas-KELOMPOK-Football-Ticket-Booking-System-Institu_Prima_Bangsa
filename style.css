@@ -209,17 +209,16 @@ section.active {
     border-radius: 80px;
 }
 #admin-panel{
-		max-width: 1800px;
+    max-width: 1800px;
 }
-		.sidebar {
+   .sidebar {
     display: none;
 }
-
 #admin-sidebar {
     display: none;
 }
-		.sidebar.active {
-		  display: block;
+   .sidebar.active {
+   display: block;
 		}
 #admin-sidebar.active {
     display: block;
