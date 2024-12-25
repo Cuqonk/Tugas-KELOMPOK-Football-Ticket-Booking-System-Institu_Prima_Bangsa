@@ -1,6 +1,5 @@
 let isAdminLoggedIn = localStorage.getItem("isAdminLoggedIn") === "true";
 let bookings = [];
-
 // Login Admin
 function handleAdminLogin(event) {
     event.preventDefault();
